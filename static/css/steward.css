@@ -34,3 +34,7 @@ body {
 .form-label-group > input, form-label-group > label {
     padding: var(--input-padding-y) var(--input-padding-x);
 }
+
+.add-button .del-button {
+    text-align: center;
+}

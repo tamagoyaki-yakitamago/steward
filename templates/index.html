@@ -10,10 +10,79 @@
             <p>名前を入力して、ボタンを押してください。</p>
         </div>
 
-        <div class="form-label-group">
-            <input type="text" id="name_1" class="form-control" placeholder="名前" required autofocus>
+        <div class="form-label-group row">
+            <div class="col-sm">
+                <input type="button" id="add_form" class="form-control add-form" value="+">
+            </div>
+            <div class="col-sm">
+                <input type="button" id="del_form" class="form-control del-form" value="-">
+            </div>
         </div>
+
+        <div class="name-form" form-no="1">
+            <div class="form-label-group row">
+                <div class="col-1">
+                    <p class="name-no">1. </p>
+                </div>
+                <div class="col-lg">
+                    <input type="text" id="name" name="entryname[0]" class="form-control" placeholder="名前" required
+                        autofocus>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-label-group">
+            <button type="button" class="btn btn-primary btn-block submit-button">幹事は誰？</button>
+        </div>
+
     </form>
 </dev>
+
+<script>
+    // 「+」ボタンが押された時
+    $(".add-form").click(function () {
+        // フォームのクローンを作成
+        let clone_code = $(".name-form > .row:first").clone();
+
+        // フォームの数を取得
+        const count = $(".name-form > .row").length;
+
+        // フォームのinputの内、nameの値だけを修正
+        clone_code.find("#name").val("");
+
+        // クローンフォームでは、「+」と「-」ボタンを削除
+        clone_code.find("input:eq(2)").remove();
+        clone_code.find("input:eq(1)").remove();
+
+        // nameフォームのnameの値を修正
+        clone_code.find("input:eq(0)").prop("name", "entryname[" + count + "]");
+
+        clone_code.find(".name-no")[0].textContent = (count + 1) + ". ";
+
+        // クローンフォームを追加
+        $(".name-form").append(clone_code);
+    });
+
+    // 「-」ボタンが押された時
+    $(".del-form").click(function () {
+        // フォームの数を取得
+        const count = $(".name-form > .row").length;
+
+        // フォームの数が1の場合は、何もしない
+        if (count != 1) {
+            // 削除するフォームを取得
+            let del_form = $(".name-form > .row:last");
+
+            // 取得したフォームを削除
+            del_form.remove();
+        }
+
+    });
+
+    // 「幹事は誰」ボタンが押された時
+    $(".submit-button").click(function () {
+        alert("Submit");
+    });
+</script>
 
 {% endblock %}
