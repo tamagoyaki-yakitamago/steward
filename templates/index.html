@@ -4,7 +4,7 @@
 <dev class="main-frame">
     <h1><img alt="logo" src="/static/images/logo.png"></h1>
 
-    <form class="form-choice">
+    <form class="form-choice" method="POST">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">幹事決め ~運命の時~</h1>
             <p>名前を入力して、ボタンを押してください。</p>
@@ -81,7 +81,8 @@
 
     // 「幹事は誰」ボタンが押された時
     $(".submit-button").click(function () {
-        alert("Submit");
+        const form = $(".form-choice");
+        form.submit();
     });
 </script>
 
