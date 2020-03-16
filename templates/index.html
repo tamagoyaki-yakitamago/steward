@@ -6,6 +6,18 @@
 
     <form class="form-choice" method="POST">
         <div class="text-center mb-4">
+            {% if message %}
+            <div class="col-lg alert alert-success">
+                <p>今回の幹事は、「{{ message }}」さんです！</p>
+            </div>
+            {% endif %}
+            {% if error_message %}
+            <div class="alert alert-danger">
+                <p>{{ error_message }}</p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">幹事決め ~運命の時~</h1>
             <p>名前を入力して、ボタンを押してください。</p>
         </div>
