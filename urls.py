@@ -39,12 +39,24 @@ class Index:
 
         return max_name, count
 
+    # Set session
+    def set_session(self, res):
+        res.session["token"] = secrets.token_hex()
+
+    # Check session
+    def check_session(self, res, token):
+        if token == res.session.get("token"):
+            return True
+        else:
+            return False
 
     # GET method
     def on_get(self, req, res):
         self.add_headers(res)
-
-        res.content = api.template("index.html")
+        self.set_session(res)
+        csrf_token = res.session["token"]
+        
+        res.content = api.template("index.html", csrf_token=csrf_token)
 
     # POST method
     async def on_post(self, req, res):
@@ -55,10 +67,12 @@ class Index:
         message = ""
         error_message = ""
 
-        if len(data) < 2 or 100 < len(data):
+        if len(data) - 1 < 2 or 100 < len(data) - 1:
             error_message = "人数は2人から100人の間になります。"
+        elif not self.check_session(res, data.get("_csrf_token")):
+            error_message = "技術的な問題が発生しました、時間をおいて再度やり直してください。"
         else:
-            for i in range(len(data)):
+            for i in range(len(data) - 1):
                 name = data.get(f"entryname[{i}]")
                 name_list.append(name)
                 name_dict[name] = 0
@@ -73,5 +87,7 @@ class Index:
             message = max_name
             print(name_dict)
 
-        print(message)
-        res.content = api.template("index.html", message=message, error_message=error_message)
+        self.set_session(res)
+        csrf_token = res.session["token"]
+        
+        res.content = api.template("index.html", message=message, error_message=error_message, csrf_token=csrf_token)
