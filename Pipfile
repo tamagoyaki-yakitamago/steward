@@ -8,6 +8,7 @@ black = "==19.10b"
 
 [packages]
 responder = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
