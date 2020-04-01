@@ -41,7 +41,6 @@ class Index:
                     break
 
             message = max_name
-            print(name_dict)
 
         set_session(res)
         csrf_token = res.session["token"]
