@@ -12,4 +12,3 @@
 ### サイト構成
 
 - [みなジェネ](http://udagawafriday.ifdef.jp/minantoka.html)
-- [かわいいフリー素材集 いらすとや](https://www.irasutoya.com/)
