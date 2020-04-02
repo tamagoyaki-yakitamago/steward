@@ -1,4 +1,3 @@
--i https://pypi.org/simple
 aiofiles==0.4.0
 aniso8601==7.0.0
 apispec==3.3.0
