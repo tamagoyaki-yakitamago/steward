@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.wsgi --log-file -
+gunicorn -k uvicorn.workers.UvicornWorker run:api
