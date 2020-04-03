@@ -12,3 +12,9 @@
 ### サイト構成
 
 - [みなジェネ](http://udagawafriday.ifdef.jp/minantoka.html)
+
+### 参考
+
+- [ResponderをUvicornやGunicornでデプロイする方法 - 技術とかボドゲとかそんな話をしたい](https://ohshige.hatenablog.com/entry/2019/02/18/190000)
+- [Herokuデプロイ方法【Heroku+Flask+MySQL】 - Qiita](https://qiita.com/nochifuchi/items/573e4630fd5722e41ae8)
+- [初心者のためのFlaskアプリ開発④　FlaskアプリをHerokuにデプロイ！｜かえるのほんだな](https://yukituna.com/1146/)
