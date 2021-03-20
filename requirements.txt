@@ -15,7 +15,7 @@ h11==0.9.0
 httptools==0.0.13
 idna==2.9
 itsdangerous==1.1.0
-jinja2==2.11.1
+jinja2==2.11.3
 markupsafe==1.1.1
 marshmallow==3.5.1
 promise==2.3
